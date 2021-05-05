@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #ggk{
+        width: 400px;
+        height: 100px;
+        position: relative;
+    }
+    #ggk .jp{
+        width: 400px;
+        height: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+        line-height: 100px;
+        font-size: 20px;
+        color: red;
+    }
+    #ggk #canvas{
+        width: 400px;
+        height: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+<body>
+    <div id="ggk">
+        <div class="jp" id="jp">谢谢惠顾</div>
+        <canvas id="canvas" width="400" height="100"></canvas>
+    </div>
+    <script>
+          /** @type {HTMLCanvasElement} */
+        var canvas=document.getElementById("canvas")
+        var ggkdom=document.getElementById('ggk')
+        var jp=document.getElementById('jp')
+        var ctx=canvas.getContext('2d')
+        ctx.fillStyle="darkgray"
+        ctx.fillRect(0,0,400,100)
+        ctx.fillStyle="#ffffff"
+        ctx.font="20px 微软雅黑"
+        ctx.fillText("刮刮乐",180,60)
+        var isDraw=false
+        canvas.onmousedown=function(){
+            isDraw=true
+            //console.log(isDraw)
+        }
+        canvas.onmousemove=function(e){
+          
+            if(isDraw){
+           let x=e.pageX-ggkdom.offsetLeft
+           let y =e.pageY-ggkdom.offsetTop
+           ctx.globalCompositeOperation="destination-out"
+           ctx.arc(x,y,20,0,2*Math.PI)
+           
+           ctx.fill()
+            }
+          
+        }
+        canvas.onmouseup=function(){
+            isDraw=false
+           // console.log(isDraw)
+        }
+        var arr=[{ content:"一等奖",p:0.1},{ content:"二等奖",p:0.2},{ content:"三等奖",p:0.3}]
+        var random=Math.random()
+        console.log("randomd的值",random)
+        if(random<arr[0].p){
+            jp.innerHTML=arr[0].content
+        }else if(random<arr[1].p+arr[0].p){
+            jp.innerHTML=arr[1].content
+        }else if(random<arr[2].p+arr[1].p+arr[0].p){
+            jp.innerHTML=arr[2].content
+        }else{
+            jp.innerHTML="谢谢惠顾"
+        }
+    </script>
+</body>
+</html>

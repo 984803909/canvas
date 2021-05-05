@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="800px" height="800px" id="canvas"></canvas>
+  
+    <script>
+     /** @type {HTMLCanvasElement} */ 
+     let canvas=document.getElementById("canvas")
+     let ctx=canvas.getContext('2d')
+     ctx.translate(300,0)//移动坐标
+     ctx.fillStyle="deepskyblue"
+     ctx.fillRect(100,100,300,100)
+     ctx.fillStyle="hotpink"
+     ctx.fillRect(0,0,100,100)
+
+    </script>
+</body>
+</html>

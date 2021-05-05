@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="800px" height="800px" id="canvas"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        let canvas=document.getElementById('canvas')
+        let ctx=canvas.getContext("2d")
+        ctx.fillStyle="Red"
+        ctx.fillRect(100,100,200,200) 
+        ctx.save()
+        ctx.scale(2,2)
+        ctx.fillStyle="blue"
+        ctx.fillRect(0,0,100,100)
+
+       ctx.restore()//复原
+        ctx.fillStyle="yellow"
+        ctx.fillRect(0,200,100,100)
+    </script>
+</body>
+</html>

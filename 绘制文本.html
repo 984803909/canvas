@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<canvas id="canvas" width="700px" height="700px"></canvas>
+<script>
+    let canvas=document.getElementById('canvas')
+    let ctx=canvas.getContext('2d')
+    ctx.font="50px 微软雅黑"
+    ctx.shadowBlur=20;
+    ctx.shadowColor="red"
+    var x=600
+    setInterval(()=>{
+        ctx.clearRect(0,0,700,700)
+       x-=10
+       ctx.fillText('helloword',x,100)    
+     ctx.strokeText("中午吃晒",x,200)
+    },100)
+    
+</script>
+</body>
+</html>
